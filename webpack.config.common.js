@@ -1,31 +1,31 @@
-const user = require('./scripts/utils/format-config')(require('./main.config.js'))
-const { EnvironmentPlugin } = require('webpack')
+const user = require("./scripts/utils/format-config")(
+  require("./main.config.js")
+);
+const { EnvironmentPlugin } = require("webpack");
 
 const CSSLoaders = [
   {
-    loader: 'css-loader',
+    loader: "css-loader",
     options: {
-      url: !!(user.appEnv === 'development'),
+      url: !!(user.appEnv === "development"),
       sourceMap: true
     }
   },
   {
-    loader: 'postcss-loader',
+    loader: "postcss-loader",
     options: {
       sourceMap: true
     }
   }
-]
+];
 
 if (user.css.preprocessorLoader) {
-  CSSLoaders.push(
-    {
-      loader: user.css.preprocessorLoader,
-      options: {
-        sourceMap: true
-      }
+  CSSLoaders.push({
+    loader: user.css.preprocessorLoader,
+    options: {
+      sourceMap: true
     }
-  )
+  });
 }
 
 const webpack = {
@@ -35,8 +35,8 @@ const webpack = {
     // we bundle from the www folder to avoid messing with the webpack dev middleware
     // all entries src/dest path are converted through scripts/utils/format-config.js
     path: user.paths.www,
-    filename: '[name].js',
-    chunkFilename: '[name].[id].chunk.js'
+    filename: "[name].js",
+    chunkFilename: "[name].[id].chunk.js"
   },
   resolve: {
     alias: {}
@@ -45,14 +45,12 @@ const webpack = {
     rules: [
       {
         test: /\.(js)$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: /(node_modules)/
       }
     ]
   },
-  plugins: [
-    new EnvironmentPlugin(['NODE_ENV'])
-  ]
-}
+  plugins: [new EnvironmentPlugin(["NODE_ENV"])]
+};
 
-module.exports = { CSSLoaders, webpack, user }
+module.exports = { CSSLoaders, webpack, user };
