@@ -27,6 +27,7 @@
     "@pqml/node-php-server": "^0.4.0",
     "autoprefixer": "^9.2.1",
     "babel-loader": "^8.0.4",
+    "barba.js": "^1.0.0",
     "browser-sync": "^2.26.3",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
@@ -49,6 +50,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tail": "^2.0.0",
+    "tilt.js": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.21.0",
     "webpack-dev-middleware": "^3.4.0",
@@ -56,7 +58,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2"
+    "@babel/runtime": "^7.1.2",
+    "headroom.js": "^0.9.4"
   },
   "private": false
 }
