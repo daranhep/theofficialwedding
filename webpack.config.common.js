@@ -1,3 +1,5 @@
+const path = require("path");
+
 const user = require("./scripts/utils/format-config")(
   require("./main.config.js")
 );
